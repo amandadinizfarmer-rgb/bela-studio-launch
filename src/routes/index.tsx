@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TELEGRAM_URL = "https://t.me/belastudio";
+const TELEGRAM_URL = "https://web.telegram.org/z/";
 
 const links = ["About", "Modules", "Reviews", "FAQ"];
 
