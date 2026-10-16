@@ -19,7 +19,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const links = ["About", "Modules", "Reviews", "Pricing", "FAQ"];
+const TELEGRAM_URL = "https://t.me/belastudio";
+
+const links = ["About", "Modules", "Reviews", "FAQ"];
 
 function useReveal() {
   useEffect(() => {
@@ -57,7 +59,6 @@ function Index() {
     { q: "Do I need any experience?", a: "Not at all. The course starts from the very basics and guides you step by step." },
     { q: "How long do I have access?", a: "You get lifetime access, including all future updates." },
     { q: "Will I receive a certificate?", a: "Yes. After completing the modules you receive a Bela Studio certificate of completion." },
-    { q: "Is there a guarantee?", a: "Yes, a 7-day money-back guarantee. If it's not for you, we refund 100%." },
   ];
 
   return (
@@ -68,13 +69,13 @@ function Index() {
           <nav className="hidden items-center gap-8 text-sm md:flex">
             {links.map((l) => <a key={l} href={`#${l.toLowerCase()}`} className="transition-colors hover:text-primary">{l}</a>)}
           </nav>
-          <a href="#pricing" className="btn-rose hidden !px-5 !py-2.5 md:inline-flex">Enroll Now</a>
+          <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-rose hidden !px-5 !py-2.5 md:inline-flex">Chat on Telegram</a>
           <button aria-label="Menu" onClick={() => setOpen(!open)} className="text-2xl md:hidden">{open ? "✕" : "☰"}</button>
         </div>
         {open && (
           <nav className="flex flex-col gap-4 border-t px-5 py-5 md:hidden">
             {links.map((l) => <a key={l} onClick={() => setOpen(false)} href={`#${l.toLowerCase()}`}>{l}</a>)}
-            <a href="#pricing" onClick={() => setOpen(false)} className="btn-rose">Enroll Now</a>
+            <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-rose">Chat on Telegram</a>
           </nav>
         )}
       </header>
@@ -87,7 +88,7 @@ function Index() {
             <h1 className="text-4xl leading-tight font-semibold md:text-6xl">Master Professional Makeup & Nails and <span className="italic text-primary">Turn Your Passion Into Income</span></h1>
             <p className="mt-6 max-w-md text-muted-foreground">Learn from scratch, at your own pace, with step-by-step video lessons and a certificate to launch your beauty career.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#pricing" className="btn-rose">Start Learning Today</a>
+              <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-rose">Chat on Telegram</a>
               <a href="#modules" className="btn-outline-rose">See the Modules</a>
             </div>
             <div className="mt-8 flex items-center gap-3 text-sm text-muted-foreground"><span><Star /><Star /><Star /><Star /><Star /></span> Loved by 2,000+ students</div>
@@ -152,23 +153,6 @@ function Index() {
                 </figure>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section id="pricing" className="mx-auto max-w-6xl px-5 py-20">
-          <div className="reveal mx-auto max-w-lg rounded-[2.5rem] bg-card p-8 text-center shadow-soft md:p-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-gold">Full Access</p>
-            <h2 className="mt-3 text-3xl font-semibold">Makeup & Nails Complete</h2>
-            <p className="mt-6 text-muted-foreground line-through">$397</p>
-            <p className="font-display text-6xl font-semibold text-primary">$197</p>
-            <p className="mt-2 text-sm text-muted-foreground">or 12 payments of $19.70</p>
-            <ul className="mx-auto mt-8 max-w-xs space-y-3 text-left text-sm">
-              {["6 complete modules · 60+ lessons", "Lifetime access & updates", "Certificate of completion", "Bonus: Business starter kit", "7-day money-back guarantee"].map((i) => (
-                <li key={i} className="flex gap-3"><span className="text-gold">✦</span>{i}</li>
-              ))}
-            </ul>
-            <a href="#pricing" className="btn-rose mt-10 w-full">Enroll Now</a>
           </div>
         </section>
 
