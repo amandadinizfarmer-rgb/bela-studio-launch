@@ -19,7 +19,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const links = ["About", "Modules", "Reviews", "Pricing", "FAQ"];
+const TELEGRAM_URL = "https://t.me/belastudio";
+
+const links = ["About", "Modules", "Reviews", "FAQ"];
 
 function useReveal() {
   useEffect(() => {
